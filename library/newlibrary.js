@@ -1,5 +1,5 @@
 
-class book{
+class Book{
     constructor(title, author, year, isAvailable){
     this.title = title;
     this.author = author;
@@ -28,7 +28,7 @@ class book{
     }
 }
 
-class library{
+class Library{
     constructor(){
         this.books = [];
     }
@@ -37,32 +37,25 @@ class library{
     }
 
     listAvailableBooks(){
-        for (const book of books){
+        for (const book of this.books){
         if(book.isAvailable)
             console.log(`${book.title} by ${book.author}`);
         }
     }
 
     borrowBook(title){
-        for (const book of books){
-            if(book.title === title && book.isAvailable){
-                book.borrowBook();
-                console.log(`${title} by ${book.author} is borrowed.`);
-                return;
-            }
-        }
+        title.borrowBook();
+
         console.log(`${title} not found in the library.`);
     }
     
     returnBook(title){
-        for (const book of books){
-            if(book.title === title &&!book.isAvailable){
-                book.returnBook();
-                console.log(`${title} by ${author} is returned.`);
-                return;
-            }
-        }
+        title.returnBook();
+            
+        
         console.log(`${title} not found in the library.`);
     }
+    }
 
-}
+
+module.exports = {Book, Library};
