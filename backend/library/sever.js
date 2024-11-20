@@ -2,6 +2,7 @@ import express, { urlencoded } from 'express';
 
 const app = express();
 
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -56,3 +57,4 @@ app.post('/books/return', (req,res) => {
 });
 
 
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
