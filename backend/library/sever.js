@@ -13,7 +13,9 @@ let library = [
     { id: 3, title: 'Moby Dick', author: 'Herman Melville', year: 1851, isAvailable: true }
 ];
 
-
+app.get('/', (req, res) => {
+    res.send('Welcome to the Library API');
+});
 
 app.get('/books/', (req, res) => 
     {res.send((library))}
